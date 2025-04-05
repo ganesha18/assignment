@@ -1,0 +1,11 @@
+{
+    "google_creds_path": "/content/ASSIGNMENT/config/credentials.json",
+    "google_sheet_url": "https://docs.google.com/spreadsheets/d/1oW4E5NPQTM0DXf1Clp3JiT5ljVfCWfSOxVM7DJn7Iyk/edit?usp=sharing",
+    "csv_file_path": "/content/ASSIGNMENT/data/epidemiology.csv",
+    "json_file_path": "/content/ASSIGNMENT/data/data.json",
+    "api_url": "https://www.covid19dataportal.org/api/backend/viral-sequences/sequences?page=1&size=15",
+    "mongodb_url": "mongodb+srv://ganeshamaheshwari:Ganesha07@cluster0.f9csdtm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "mongodb_db": "Assignment",
+    "mongodb_collection": "assignment",
+    "output_csv_path": "/content/ASSIGNMENT/output/final_cleaned_data.csv"
+}
