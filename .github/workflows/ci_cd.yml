@@ -1,0 +1,41 @@
+name: ETL Pipeline CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * *'  # Runs every day at 2 AM UTC
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run ETL Pipeline
+        run: python etl_pipeline.py
+
+      - name: Load to Database
+        run: python load_to_db.py
+        env:
+          DB_PASSWORD: Ganesha@0707
+          MONGO_URI: mongodb+srv://ganeshamaheshwari:Ganesha07@cluster0.f9csdtm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+          GOOGLE_CREDENTIALS: /content/ASSIGNMENT/config/credentials.json
+
+      - name: Upload Final Output
+        uses: actions/upload-artifact@v3
+        with:
+          name: final_cleaned_data
+          path: output/final_cleaned_data.csv
