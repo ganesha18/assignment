@@ -7,7 +7,7 @@ def job():
     etl_pipeline()
 
 # Schedule the ETL pipeline to run every day at midnight
-schedule.every().day.at("00:00").do(job)
+schedule.every().day.at("02:00").do(job)
 
 while True:
     schedule.run_pending()
